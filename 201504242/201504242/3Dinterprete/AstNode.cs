@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace _201504242._3Dinterprete
 {
     class AstNode : IAstNodeInit, IBrowsableAstNode
     {
-        [Serializable]
+  
         public class AstNodeList : List<AstNode> { }
-        [Serializable]
+      
         public class locacion
         {
             public int fila;
@@ -20,6 +21,8 @@ namespace _201504242._3Dinterprete
         }
         public AstNode Parent { get; set; }
         public locacion Span = new locacion();
+        public bool isBreakPoint = false;
+
         protected object LockObject = new object();
         public readonly AstNodeList ChildNodes = new AstNodeList();
         public virtual string AsString { get; protected set; }
@@ -35,10 +38,8 @@ namespace _201504242._3Dinterprete
         }
         public virtual object ejecutar(Entorno3D env, object obj = null)
         {
-            foreach (AstNode hijos in this.ChildNodes)
-            {
-                hijos.ejecutar(env, obj);
-            }
+            if (this.isBreakPoint)
+                Thread.Sleep(100);
             return null;
         }
 

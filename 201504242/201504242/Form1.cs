@@ -65,5 +65,10 @@ namespace _201504242
                 MessageBox.Show(ex.Message + " " + ex.Source + "  " + ex.ToString());
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

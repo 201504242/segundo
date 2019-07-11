@@ -54,17 +54,25 @@ namespace _201504242._3Dinterprete
             numero.Name = "numero";
             StringLiteral cadena = new StringLiteral("cadena", "\"", StringOptions.AllowsAllEscapes);
             cadena.Name = "cadena";
-
+            RegexBasedTerminal label = new RegexBasedTerminal("(L|l)[0-9]+");
+            label.Name = "label";
             RegexBasedTerminal bolean = new RegexBasedTerminal("(verdadero|falso)");
             bolean.Name = "bool";
             #endregion
 
             #region NonTerminals
-            //NonTerminal S = new NonTerminal("S", typeof(AstNode));
+            NonTerminal S = new NonTerminal("S", typeof(AstNode));
+            NonTerminal LISTA_INSTRUCCION = new NonTerminal("LISTA_INSTRUCCION", typeof(AstNode));
+            NonTerminal INS = new NonTerminal("INS", typeof(AstNode));
             #endregion
 
-           
+            S.Rule = LISTA_INSTRUCCION;
 
+            LISTA_INSTRUCCION.Rule = MakeStarRule(LISTA_INSTRUCCION, INS);
+
+
+
+            this.Root = S;
         }
     }
 }
