@@ -40,7 +40,14 @@ namespace _201504242._3Dinterprete
                      or = ToTerm("||"),
                      not = ToTerm("!");
             #endregion
+            #region Signos
+            Terminal igual = ToTerm("="),
+                     puntoycoma = ToTerm(";"),
+                     qmk = ToTerm("?"),
+                     dospuntos = ToTerm(":"),
+                     coma = ToTerm(",");
 
+            #endregion
             #region Reservadas
             Terminal crear = ToTerm("crear"),
                 tabla = ToTerm("tabla");
@@ -64,13 +71,16 @@ namespace _201504242._3Dinterprete
             NonTerminal S = new NonTerminal("S", typeof(AstNode));
             NonTerminal LISTA_INSTRUCCION = new NonTerminal("LISTA_INSTRUCCION", typeof(AstNode));
             NonTerminal INS = new NonTerminal("INS", typeof(AstNode));
+            NonTerminal EXP = new NonTerminal("EXP", typeof(natural));
             #endregion
 
             S.Rule = LISTA_INSTRUCCION;
 
             LISTA_INSTRUCCION.Rule = MakeStarRule(LISTA_INSTRUCCION, INS);
 
+            INS.Rule = EXP + puntoycoma;
 
+            EXP.Rule = numero;
 
             this.Root = S;
         }

@@ -40,6 +40,11 @@ namespace _201504242._3Dinterprete
         {
             if (this.isBreakPoint)
                 Thread.Sleep(100);
+
+            foreach (AstNode hijos in this.ChildNodes)
+            {
+                hijos.ejecutar(env, obj);
+            }
             return null;
         }
 

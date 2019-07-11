@@ -1,4 +1,5 @@
-﻿using _201504242.com.AST;
+﻿using _201504242._3Dinterprete;
+using _201504242.com.AST;
 using _201504242.Interprete;
 using Irony.Parsing;
 using System;
@@ -68,7 +69,9 @@ namespace _201504242
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            string text = System.IO.File.ReadAllText(@"entrada.txt");
+            interprete3D codigo3d = new interprete3D(text);
+            codigo3d.ejecutarCodigo();
         }
     }
 }

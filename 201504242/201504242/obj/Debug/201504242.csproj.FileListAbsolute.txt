@@ -16,3 +16,9 @@ C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\obj\Debug\Interop.WI
 C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\obj\Debug\201504242.csproj.ResolveComReference.cache
 C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\obj\Debug\201504242.exe
 C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\obj\Debug\201504242.pdb
+C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\obj\Debug\201504242.csprojResolveAssemblyReference.cache
+C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\obj\Debug\_201504242.Form1.resources
+C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\obj\Debug\_201504242.Properties.Resources.resources
+C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\obj\Debug\201504242.csproj.GenerateResource.Cache
+C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\bin\Debug\201504242.exe
+C:\Users\Jorge\Documents\GitHub\segundo\201504242\201504242\bin\Debug\201504242.pdb
