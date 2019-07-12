@@ -72,6 +72,7 @@ namespace _201504242._3Dinterprete
             NonTerminal LISTA_INSTRUCCION = new NonTerminal("LISTA_INSTRUCCION", typeof(AstNode));
             NonTerminal INS = new NonTerminal("INS", typeof(AstNode));
             NonTerminal EXP = new NonTerminal("EXP", typeof(natural));
+            NonTerminal LABEL = new NonTerminal("LABEL", typeof(label));
             #endregion
 
             S.Rule = LISTA_INSTRUCCION;
@@ -80,7 +81,10 @@ namespace _201504242._3Dinterprete
 
             INS.Rule = EXP + puntoycoma;
 
-            EXP.Rule = numero;
+            EXP.Rule = numero
+                      | LABEL ;
+
+            LABEL.Rule = label;
 
             this.Root = S;
         }
