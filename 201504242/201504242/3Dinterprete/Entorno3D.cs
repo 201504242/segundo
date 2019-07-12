@@ -8,17 +8,20 @@ namespace _201504242._3Dinterprete
 {
     class Entorno3D
     {
-          internal class tablaSimbolos : List<ISimbolo>
+        internal class tablaSimbolos : List<ISimbolo>
         {
             public tablaSimbolos() { }
         }
 
-
+        internal class tablaTemporales : System.Collections.ArrayList
+        {
+            public tablaTemporales() {}
+        }
         public Entorno3D ant { set; get; }
 
         internal tablaSimbolos ts { set; get; }
 
-
+        internal tablaTemporales tst { set; get; }
 
         public bool FlagDonde = false;
 
@@ -26,6 +29,8 @@ namespace _201504242._3Dinterprete
         {
             this.ant = ant;
             ts = new tablaSimbolos();
+            tst = new tablaTemporales();
+           
           
         }
         internal void put(ISimbolo sim)
@@ -63,6 +68,16 @@ namespace _201504242._3Dinterprete
                }
            }
            return null;
+       }
+
+       internal object getTemporal(int p)
+       {
+           return this.tst[p];
+       }
+
+       internal void insertTemporal(int p, object value)
+       {
+           this.tst.Insert(p, value);
        }
     }
 }

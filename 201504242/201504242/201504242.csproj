@@ -55,12 +55,16 @@
   <ItemGroup>
     <Compile Include="3Dinterprete\AstNode.cs" />
     <Compile Include="3Dinterprete\ConstructorAst.cs" />
+    <Compile Include="3Dinterprete\decvar.cs" />
     <Compile Include="3Dinterprete\Entorno3D.cs" />
     <Compile Include="3Dinterprete\gramatica3d.cs" />
+    <Compile Include="3Dinterprete\id.cs" />
     <Compile Include="3Dinterprete\interprete3D.cs" />
     <Compile Include="3Dinterprete\ISimbolo.cs" />
     <Compile Include="3Dinterprete\label.cs" />
     <Compile Include="3Dinterprete\natural.cs" />
+    <Compile Include="3Dinterprete\temporal.cs" />
+    <Compile Include="3Dinterprete\variable.cs" />
     <Compile Include="com.AST\AST.cs" />
     <Compile Include="com.AST\General\Expresion.cs" />
     <Compile Include="com.AST\General\Instruccion.cs" />

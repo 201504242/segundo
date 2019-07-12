@@ -49,7 +49,7 @@ namespace _201504242._3Dinterprete
 
             #endregion
             #region Reservadas
-            Terminal crear = ToTerm("crear"),
+            Terminal var = ToTerm("var"),
                 tabla = ToTerm("tabla");
             #endregion
 
@@ -63,6 +63,8 @@ namespace _201504242._3Dinterprete
             cadena.Name = "cadena";
             RegexBasedTerminal label = new RegexBasedTerminal("(L|l)[0-9]+");
             label.Name = "label";
+            RegexBasedTerminal temporal = new RegexBasedTerminal("(t|T)[0-9]+");
+            label.Name = "temporal";
             RegexBasedTerminal bolean = new RegexBasedTerminal("(verdadero|falso)");
             bolean.Name = "bool";
             #endregion
@@ -73,19 +75,30 @@ namespace _201504242._3Dinterprete
             NonTerminal INS = new NonTerminal("INS", typeof(AstNode));
             NonTerminal EXP = new NonTerminal("EXP", typeof(natural));
             NonTerminal LABEL = new NonTerminal("LABEL", typeof(label));
+            NonTerminal TEMPORAL = new NonTerminal("LABEL", typeof(temporal));
+            NonTerminal IDENTIFICADOR = new NonTerminal("IDENTIFICADOR", typeof(id));
+            NonTerminal DECLARACION_VAR = new NonTerminal("IDENTIFICADOR", typeof(decvar));
             #endregion
 
             S.Rule = LISTA_INSTRUCCION;
 
             LISTA_INSTRUCCION.Rule = MakeStarRule(LISTA_INSTRUCCION, INS);
 
-            INS.Rule = EXP + puntoycoma;
+            INS.Rule = EXP + puntoycoma
+                      |DECLARACION_VAR + puntoycoma;
+
+
+            DECLARACION_VAR.Rule = var + id  + igual + EXP;
+
 
             EXP.Rule = numero
-                      | LABEL ;
+                      | LABEL
+                      | TEMPORAL
+                      | IDENTIFICADOR ;
 
             LABEL.Rule = label;
-
+            TEMPORAL.Rule = temporal;
+            IDENTIFICADOR.Rule = id;
             this.Root = S;
         }
     }
