@@ -1,11 +1,32 @@
 
+l0:
+t25 = 6;
+call factoral;
+call factoral2;
+proc factoral begin
 l1:
 t1 = 66 ;
 t2 = 4;
 t3= t1 + t2;
 print('%c',t3);
-si ( t1 < t2 ) goto l3
+si ( t1 < t2 ) goto l3;
 l2:
 print('%c',66);
 l3:
 print('%c',67);
+end
+
+proc factoral2 begin
+l1:
+t1 = 66 ;
+t2 = 4;
+t3= t1 + t2;
+print('%c',t3);
+si ( t1 < t2 ) goto l3;
+l2:
+print('%c',85);
+l3:
+call factoral;
+print('%c',67);
+
+end

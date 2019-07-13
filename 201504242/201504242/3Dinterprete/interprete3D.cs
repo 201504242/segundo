@@ -29,6 +29,14 @@ namespace _201504242._3Dinterprete
                     ConstructorAst builder = new ConstructorAst(raiz);
                     AstNode nuevaRaiz = builder.raiz;
                     Entorno3D inicio = new Entorno3D(null);
+                    foreach (AstNode nodo in nuevaRaiz.ChildNodes[0].ChildNodes)
+                    {
+                        AstNode nodot = nodo.ChildNodes[0];
+                        if (nodot is funcion)
+                        {
+                            inicio.funciones.Add(((funcion)nodot).nombre, nodo);
+                        }
+                    }
                     nuevaRaiz.ejecutar(inicio);
                 }
             }

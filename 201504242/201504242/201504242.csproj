@@ -60,6 +60,7 @@
     <Compile Include="3Dinterprete\ConstructorAst.cs" />
     <Compile Include="3Dinterprete\decvar.cs" />
     <Compile Include="3Dinterprete\Entorno3D.cs" />
+    <Compile Include="3Dinterprete\funcion.cs" />
     <Compile Include="3Dinterprete\gramatica3d.cs" />
     <Compile Include="3Dinterprete\id.cs" />
     <Compile Include="3Dinterprete\interprete3D.cs" />

@@ -58,6 +58,7 @@ namespace _201504242._3Dinterprete
                 si = ToTerm("si"),
                  end = ToTerm("end"),
                  begin = ToTerm("begin"),
+                 llamar = ToTerm("call"),
                 proc = ToTerm("proc");
             
             #endregion
@@ -104,11 +105,12 @@ namespace _201504242._3Dinterprete
 
             INS.Rule = DECLARACION_VAR + puntoycoma
                       |LABEL + dospuntos
-                      |SI + dospuntos
+                      | SI + puntoycoma
                       |SALTO + puntoycoma
                       |PRINT + puntoycoma
                       |ASIGNACION  + puntoycoma
-                      | FUNCION ;
+                      | FUNCION 
+                      |CALL + puntoycoma;
 
             DECLARACION_VAR.Rule = var + id  + igual + EXP;
 
@@ -134,6 +136,7 @@ namespace _201504242._3Dinterprete
 
             PRINT.Rule = print + pa_A + OP2 + coma + EXP + pa_C;
 
+            CALL.Rule = llamar + id ;
 
             OP2.Rule = caracter | entero | flotante;
 

@@ -18,6 +18,10 @@ namespace _201504242._3Dinterprete
             for (; i < ChildNodes.Count; i++)
             {
                 AstNode nodo = ChildNodes[i];
+                if (nodo.ChildNodes[0] is funcion)
+                {
+                    continue;
+                }
                 object ret = nodo.ejecutar(env, obj);
                 if (ret is salto)
                 {

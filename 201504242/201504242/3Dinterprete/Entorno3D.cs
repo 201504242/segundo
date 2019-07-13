@@ -23,6 +23,7 @@ namespace _201504242._3Dinterprete
 
         internal tablaTemporales tst { set; get; }
 
+        internal tablaTemporales funciones { set; get; } 
         public bool FlagDonde = false;
 
         public Entorno3D(Entorno3D ant)
@@ -30,7 +31,7 @@ namespace _201504242._3Dinterprete
             this.ant = ant;
             ts = new tablaSimbolos();
             tst = new tablaTemporales();
-           
+            funciones = new tablaTemporales();
           
         }
         internal void put(ISimbolo sim)
