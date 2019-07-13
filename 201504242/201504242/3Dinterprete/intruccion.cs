@@ -5,28 +5,16 @@ using System.Text;
 
 namespace _201504242._3Dinterprete
 {
-    class salto : AstNode
+    class intruccion : AstNode
     {
 
         public override void Init(Irony.Ast.AstContext context, Irony.Parsing.ParseTreeNode treeNode)
         {
             base.Init(context, treeNode);
-            //this.exp = (AstNode)ChildNodes[0];
-            string label = treeNode.ChildNodes[1].Token.ValueString.Substring(1);
-            this.valor = int.Parse(label); 
-
         }
         public override object ejecutar(Entorno3D env, object obj = null)
         {
-            return this;
+            return ChildNodes[0].ejecutar(env, obj);
         }
-
-        public int valor
-        {
-            get;
-            set;
-        }
-        
-
     }
 }

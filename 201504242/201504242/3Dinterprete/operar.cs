@@ -8,7 +8,7 @@ namespace _201504242._3Dinterprete
 {
     class operar
     {
-        public static object operar(object op1 , object op2 , string op)
+        public static object operarG(object op1 , object op2 , string op)
         {
             switch (op)
             {

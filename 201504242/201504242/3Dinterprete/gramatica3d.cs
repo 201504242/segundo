@@ -55,8 +55,10 @@ namespace _201504242._3Dinterprete
                 caracter = ToTerm("'%c'"),
                 entero = ToTerm("'%i'"),
                 flotante = ToTerm("'%f'"),
-                si = ToTerm("si");
-
+                si = ToTerm("si"),
+                 end = ToTerm("end"),
+                 begin = ToTerm("begin"),
+                proc = ToTerm("proc");
             
             #endregion
 
@@ -78,8 +80,8 @@ namespace _201504242._3Dinterprete
 
             #region NonTerminals
             NonTerminal S = new NonTerminal("S", typeof(AstNode));
-            NonTerminal LISTA_INSTRUCCION = new NonTerminal("LISTA_INSTRUCCION", typeof(AstNode));
-            NonTerminal INS = new NonTerminal("INS", typeof(AstNode));
+            NonTerminal LISTA_INSTRUCCION = new NonTerminal("LISTA_INSTRUCCION", typeof(listaIntrucciones));
+            NonTerminal INS = new NonTerminal("INS", typeof(intruccion));
             NonTerminal EXP = new NonTerminal("EXP", typeof(natural));
             NonTerminal LABEL = new NonTerminal("LABEL", typeof(label));
             NonTerminal TEMPORAL = new NonTerminal("LABEL", typeof(temporal));
@@ -92,21 +94,25 @@ namespace _201504242._3Dinterprete
              NonTerminal PRINT = new NonTerminal("PRINT", typeof(print));
              NonTerminal ASIGNACION = new NonTerminal("ASIGNACION", typeof(asignacion));
              NonTerminal ASIGNACIONES = new NonTerminal("ASIGNACION", typeof(asignaciones));
+            NonTerminal CALL = new NonTerminal("CALL",typeof(call));
+             NonTerminal FUNCION = new NonTerminal("CALL",typeof(funcion));
             #endregion
 
             S.Rule = LISTA_INSTRUCCION;
 
             LISTA_INSTRUCCION.Rule = MakeStarRule(LISTA_INSTRUCCION, INS);
 
-            INS.Rule = //EXP + puntoycoma
-                       DECLARACION_VAR + puntoycoma
+            INS.Rule = DECLARACION_VAR + puntoycoma
                       |LABEL + dospuntos
-                      |SI
+                      |SI + dospuntos
                       |SALTO + puntoycoma
                       |PRINT + puntoycoma
-                      |ASIGNACION  + puntoycoma;
+                      |ASIGNACION  + puntoycoma
+                      | FUNCION ;
 
             DECLARACION_VAR.Rule = var + id  + igual + EXP;
+
+            FUNCION.Rule = proc + id +  begin + LISTA_INSTRUCCION + end ;
 
             SI.Rule = si + pa_A + EXP + OP + EXP + pa_C + SALTO ;
 
@@ -114,7 +120,7 @@ namespace _201504242._3Dinterprete
                       | TEMPORAL
                       | IDENTIFICADOR ;
 
-            SALTO.Rule = got + LABEL;
+            SALTO.Rule = got + label;
 
             ASIGNACION.Rule =  ASIGNACIONES + igual + EXP
                              | ASIGNACIONES + igual + EXP + OP + EXP;
@@ -122,7 +128,7 @@ namespace _201504242._3Dinterprete
             ASIGNACIONES.Rule = temporal
                                | id;
 
-            OP.Rule = mas | menos ;
+            OP.Rule = mas | menos  |  identico |diferente |menorQue|mayorQue | menorIgual | mayorIgual ;
 
             LABEL.Rule = label;
 

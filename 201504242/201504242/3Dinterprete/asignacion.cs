@@ -27,6 +27,19 @@ namespace _201504242._3Dinterprete
                     env.insertTemporal(((temporal)asg).valor , val);
                 }
             }
+            else
+            {
+               object ret =  operar.operarG(ChildNodes[1].ejecutar(env, null), ChildNodes[3].ejecutar(env, null), ChildNodes[2].ejecutar(env, null).ToString());
+               object asg = ChildNodes[0].ejecutar(env, null);
+               if (asg is ISimbolo)
+               {
+                   ((ISimbolo)asg).valor = ret;
+               }
+               else if (asg is temporal)
+               {
+                   env.insertTemporal(((temporal)asg).valor, ret);
+               }
+            }
             
             return null;
         }

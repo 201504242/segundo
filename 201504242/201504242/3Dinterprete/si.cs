@@ -16,7 +16,7 @@ namespace _201504242._3Dinterprete
         }
         public override object ejecutar(Entorno3D env, object obj = null)
         {
-            bool b = (bool)operar.operar(ChildNodes[0].ejecutar(env, null), ChildNodes[2].ejecutar(env, null), ChildNodes[1].ejecutar(env, null).ToString());
+            bool b = (bool)operar.operarG(ChildNodes[0].ejecutar(env, null), ChildNodes[2].ejecutar(env, null), ChildNodes[1].ejecutar(env, null).ToString());
             if (b)
             {
                 return ChildNodes[3].ejecutar(env, null);

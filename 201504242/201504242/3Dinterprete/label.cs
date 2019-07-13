@@ -20,7 +20,7 @@ namespace _201504242._3Dinterprete
         {
              return this;
         }
-        private int valor
+        public int valor
         {
             get;
             set;
