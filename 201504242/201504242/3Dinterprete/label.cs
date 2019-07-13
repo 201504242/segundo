@@ -18,7 +18,7 @@ namespace _201504242._3Dinterprete
         }
         public override object ejecutar(Entorno3D env, object obj = null)
         {
-             return null;
+             return this;
         }
         private int valor
         {

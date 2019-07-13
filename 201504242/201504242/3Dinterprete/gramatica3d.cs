@@ -50,13 +50,20 @@ namespace _201504242._3Dinterprete
             #endregion
             #region Reservadas
             Terminal var = ToTerm("var"),
-                tabla = ToTerm("tabla");
+                print = ToTerm("print"),
+                got = ToTerm("goto"),
+                caracter = ToTerm("'%c'"),
+                entero = ToTerm("'%i'"),
+                flotante = ToTerm("'%f'"),
+                si = ToTerm("si");
+
+            
             #endregion
 
             #region  Tipos de datos
 
             IdentifierTerminal id = new IdentifierTerminal("IDENTIFER");
-            id.Name = "identificador";
+            id.Name = "id";
             NumberLiteral numero = new NumberLiteral("numero");
             numero.Name = "numero";
             StringLiteral cadena = new StringLiteral("cadena", "\"", StringOptions.AllowsAllEscapes);
@@ -64,7 +71,7 @@ namespace _201504242._3Dinterprete
             RegexBasedTerminal label = new RegexBasedTerminal("(L|l)[0-9]+");
             label.Name = "label";
             RegexBasedTerminal temporal = new RegexBasedTerminal("(t|T)[0-9]+");
-            label.Name = "temporal";
+            temporal.Name = "temporal";
             RegexBasedTerminal bolean = new RegexBasedTerminal("(verdadero|falso)");
             bolean.Name = "bool";
             #endregion
@@ -78,25 +85,52 @@ namespace _201504242._3Dinterprete
             NonTerminal TEMPORAL = new NonTerminal("LABEL", typeof(temporal));
             NonTerminal IDENTIFICADOR = new NonTerminal("IDENTIFICADOR", typeof(id));
             NonTerminal DECLARACION_VAR = new NonTerminal("IDENTIFICADOR", typeof(decvar));
+            NonTerminal SI = new NonTerminal("SI", typeof(si));
+            NonTerminal SALTO = new NonTerminal("SI", typeof(salto));
+            NonTerminal OP = new NonTerminal("SI", typeof(op));
+             NonTerminal OP2 = new NonTerminal("SI", typeof(op));
+             NonTerminal PRINT = new NonTerminal("PRINT", typeof(print));
+             NonTerminal ASIGNACION = new NonTerminal("ASIGNACION", typeof(asignacion));
+             NonTerminal ASIGNACIONES = new NonTerminal("ASIGNACION", typeof(asignaciones));
             #endregion
 
             S.Rule = LISTA_INSTRUCCION;
 
             LISTA_INSTRUCCION.Rule = MakeStarRule(LISTA_INSTRUCCION, INS);
 
-            INS.Rule = EXP + puntoycoma
-                      |DECLARACION_VAR + puntoycoma;
-
+            INS.Rule = //EXP + puntoycoma
+                       DECLARACION_VAR + puntoycoma
+                      |LABEL + dospuntos
+                      |SI
+                      |SALTO + puntoycoma
+                      |PRINT + puntoycoma
+                      |ASIGNACION  + puntoycoma;
 
             DECLARACION_VAR.Rule = var + id  + igual + EXP;
 
+            SI.Rule = si + pa_A + EXP + OP + EXP + pa_C + SALTO ;
 
             EXP.Rule = numero
-                      | LABEL
                       | TEMPORAL
                       | IDENTIFICADOR ;
 
+            SALTO.Rule = got + LABEL;
+
+            ASIGNACION.Rule =  ASIGNACIONES + igual + EXP
+                             | ASIGNACIONES + igual + EXP + OP + EXP;
+
+            ASIGNACIONES.Rule = temporal
+                               | id;
+
+            OP.Rule = mas | menos ;
+
             LABEL.Rule = label;
+
+            PRINT.Rule = print + pa_A + OP2 + coma + EXP + pa_C;
+
+
+            OP2.Rule = caracter | entero | flotante;
+
             TEMPORAL.Rule = temporal;
             IDENTIFICADOR.Rule = id;
             this.Root = S;

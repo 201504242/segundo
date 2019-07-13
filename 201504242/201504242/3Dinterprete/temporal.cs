@@ -9,6 +9,13 @@ namespace _201504242._3Dinterprete
     class temporal : AstNode
     {
 
+        public temporal()
+        {
+        }
+        public temporal(String val)
+        {
+            this.valor = int.Parse(val.Substring(1));
+        }
         public override void Init(Irony.Ast.AstContext context, Irony.Parsing.ParseTreeNode treeNode)
         {
             base.Init(context, treeNode);
@@ -20,7 +27,7 @@ namespace _201504242._3Dinterprete
         {
             return env.getTemporal(this.valor);
         }
-        private int valor
+        public int valor
         {
             get;
             set;

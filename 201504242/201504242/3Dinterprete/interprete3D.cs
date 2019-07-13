@@ -36,6 +36,7 @@ namespace _201504242._3Dinterprete
             {
                 // Implementar Error
                 Console.Write(ex.Message);
+                Console.Write(ex.StackTrace);
             }
         }
     }

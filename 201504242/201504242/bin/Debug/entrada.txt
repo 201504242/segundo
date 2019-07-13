@@ -1,2 +1,2 @@
-var P = 0;
-var H = 0;
+t1 = 66;
+print('%c',t1);

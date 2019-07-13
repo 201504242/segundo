@@ -13,7 +13,7 @@ namespace _201504242._3Dinterprete
             public tablaSimbolos() { }
         }
 
-        internal class tablaTemporales : System.Collections.ArrayList
+        internal class tablaTemporales : System.Collections.Hashtable
         {
             public tablaTemporales() {}
         }
@@ -77,7 +77,8 @@ namespace _201504242._3Dinterprete
 
        internal void insertTemporal(int p, object value)
        {
-           this.tst.Insert(p, value);
+           this.tst.Add(p, value);
+
        }
     }
 }

@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="3Dinterprete\asignacion.cs" />
+    <Compile Include="3Dinterprete\asignaciones.cs" />
     <Compile Include="3Dinterprete\AstNode.cs" />
     <Compile Include="3Dinterprete\ConstructorAst.cs" />
     <Compile Include="3Dinterprete\decvar.cs" />
@@ -63,6 +65,10 @@
     <Compile Include="3Dinterprete\ISimbolo.cs" />
     <Compile Include="3Dinterprete\label.cs" />
     <Compile Include="3Dinterprete\natural.cs" />
+    <Compile Include="3Dinterprete\op.cs" />
+    <Compile Include="3Dinterprete\print.cs" />
+    <Compile Include="3Dinterprete\salto.cs" />
+    <Compile Include="3Dinterprete\si.cs" />
     <Compile Include="3Dinterprete\temporal.cs" />
     <Compile Include="3Dinterprete\variable.cs" />
     <Compile Include="com.AST\AST.cs" />
