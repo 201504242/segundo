@@ -24,7 +24,7 @@ namespace _201504242
         {
             try
             {
-                string text = System.IO.File.ReadAllText(@"c:\entrada.txt");
+                string text = System.IO.File.ReadAllText(@"entrada.txt");
 
                 Gramatica grammar = new Gramatica();
                 LanguageData lenguaje = new LanguageData(grammar);
@@ -65,5 +65,6 @@ namespace _201504242
                 MessageBox.Show(ex.Message + " " + ex.Source + "  " + ex.ToString());
             }
         }
+        
     }
 }

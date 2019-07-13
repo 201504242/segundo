@@ -11,3 +11,14 @@ C:\Users\p_ab1\Desktop\Compi 2\201504242\201504242\obj\Debug\201504242.csproj.Re
 C:\Users\p_ab1\Desktop\Compi 2\201504242\201504242\bin\Debug\Irony.dll
 C:\Users\p_ab1\Desktop\Compi 2\201504242\201504242\bin\Debug\Irony.Interpreter.dll
 C:\Users\p_ab1\Desktop\Compi 2\201504242\201504242\obj\Debug\_201504242.Form1.resources
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\bin\Debug\201504242.exe.config
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\obj\Debug\Interop.WINGRAPHVIZLib.dll
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\obj\Debug\201504242.csproj.ResolveComReference.cache
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\obj\Debug\201504242.exe
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\obj\Debug\201504242.pdb
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\obj\Debug\201504242.csprojResolveAssemblyReference.cache
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\obj\Debug\_201504242.Form1.resources
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\obj\Debug\_201504242.Properties.Resources.resources
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\obj\Debug\201504242.csproj.GenerateResource.Cache
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\bin\Debug\201504242.exe
+C:\Users\p_ab1\Desktop\Compi 2\segundo\201504242\201504242\bin\Debug\201504242.pdb

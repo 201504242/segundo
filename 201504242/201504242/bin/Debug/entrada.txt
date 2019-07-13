@@ -1,0 +1,18 @@
+class Recursion:
+	def int factorial(num):
+		if num == 0 or num == 1:
+			return 1
+		else:
+			return num * factorial(num - 1)
+
+	def int fibonacci_recursive(n):
+		print("Calculating F", "(", n, ")")
+    	if n == 0:
+        	return 0
+    	elif n == 1:
+        	return 1
+    	else:
+        	return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
+
+x = Recursion("name")
+print(x.factorial(3))
